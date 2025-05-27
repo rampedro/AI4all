@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI4All Tool Gallery</title>
+</head>
+<body>
+  <h1>AI4All Tools</h1>
+  <ul id="tool-list"></ul>
+
+  <script>
+    const tools = ["tool1.html", "tool2.html", "tool3.html"];
+    const list = document.getElementById("tool-list");
+
+    tools.forEach(tool => {
+      const item = document.createElement("li");
+      item.innerHTML = `<a href="tools/${tool}" target="_blank">${tool}</a>`;
+      list.appendChild(item);
+    });
+  </script>
+</body>
+</html>

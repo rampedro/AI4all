@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Website</title>
+  <title>AI4All Tool Gallery</title>
 </head>
 <body>
-<h1>Hello World, this is my first web page.</h1>
+  <h1>AI4All Tools</h1>
+  <ul id="tool-list"></ul>
+
+  <script>
+    const tools = ["tool1.html", "tool2.html", "tool3.html"];
+    const list = document.getElementById("tool-list");
+
+    tools.forEach(tool => {
+      const item = document.createElement("li");
+      item.innerHTML = `<a href="tools/${tool}" target="_blank">${tool}</a>`;
+      list.appendChild(item);
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pipeline Admin</title>
+</head>
+<body>
+  <h1>Build Status</h1>
+  <div id="status">Loading...</div>
+
+  <script>
+    fetch('https://api.github.com/repos/rampedro/AI4all/actions/runs')
+      .then(response => response.json())
+      .then(data => {
+        const latest = data.workflow_runs[0];
+        document.getElementById('status').innerHTML = `
+          <p>Status: <strong>${latest.conclusion}</strong></p>
+          <p>Workflow: ${latest.name}</p>
+          <p>Run ID: ${latest.id}</p>
+          <p><a href="${latest.html_url}" target="_blank">View on GitHub</a></p>
+        `;
+      })
+      .catch(err => {
+        document.getElementById('status').textContent = "Error loading build status.";
+      });
+  </script>
+</body>
+</html>
